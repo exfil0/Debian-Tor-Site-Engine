@@ -1,4 +1,4 @@
-# Dark Web Server Wizard
+# Debian Tor Site Engine
 
 A comprehensive wizard-style tool to install and configure a **single-instance Tor hidden service** on Debian/Ubuntu systems. It also sets up basic security (UFW, Fail2Ban), synchronizes the system clock, and optionally disables SELinux if present.
 
