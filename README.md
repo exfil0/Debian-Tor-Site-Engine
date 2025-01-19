@@ -40,8 +40,8 @@ This script interacts with you via yes/no prompts, making it easy to skip or inc
 
    ```bash
    # Option 1: Using git
-   git clone https://github.com/your-repo/your-project.git
-   cd your-project
+   git clone https://github.com/exfil0/Debian-Tor-Site-Engine.git
+   cd Debian-Tor-Site-Engine
 
    # Option 2: Curl/Wget direct download (example URL)
    curl -O https://example.com/setup_darkweb_server.py
