@@ -32,6 +32,8 @@ This script interacts with you via yes/no prompts, making it easy to skip or inc
 - **SELinux Handling**: Gracefully disables SELinux if present; otherwise, it’s skipped.  
 - **SSH Convenience**: Optionally keeps SSH password authentication enabled for debugging (which you can disable later).
 
+![dtse](dtse.png)
+
 ---
 
 ## Installation
@@ -42,10 +44,6 @@ This script interacts with you via yes/no prompts, making it easy to skip or inc
    # Option 1: Using git
    git clone https://github.com/exfil0/Debian-Tor-Site-Engine.git
    cd Debian-Tor-Site-Engine
-
-   # Option 2: Curl/Wget direct download (example URL)
-   curl -O https://example.com/setup_darkweb_server.py
-   chmod +x setup_darkweb_server.py
    ```
 
 2. **Make Script Executable**
