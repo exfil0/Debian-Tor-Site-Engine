@@ -18,8 +18,11 @@ The **Dark Web Server Wizard** (`setup_darkweb_server.py`) is an automated scrip
 5. **Enables Fail2Ban** to mitigate brute-force attacks.  
 6. **Optionally disables SELinux**, if detected.  
 7. **Synchronizes the system clock** with `ntpdate` (important for Tor’s correct operation).
+8. **Addon Flask Deployment**: Includes an optional addon to deploy a minimal Flask landing page.
 
 This script interacts with you via yes/no prompts, making it easy to skip or include specific steps.
+
+![dtse](dtse.png)
 
 ---
 
@@ -30,9 +33,8 @@ This script interacts with you via yes/no prompts, making it easy to skip or inc
 - **Security Tools**: Quickly hardens your server with UFW and Fail2Ban.  
 - **Time Sync**: Avoids Tor clock-related issues by installing and running `ntpdate`.  
 - **SELinux Handling**: Gracefully disables SELinux if present; otherwise, it’s skipped.  
-- **SSH Convenience**: Optionally keeps SSH password authentication enabled for debugging (which you can disable later).
-
-![dtse](dtse.png)
+- **SSH Convenience**: Optionally keeps SSH password authentication enabled for debugging (which you can disable later).  
+- **Flask Deployment**: Provides a simple Flask-based landing page as an optional addon.
 
 ---
 
@@ -46,13 +48,13 @@ This script interacts with you via yes/no prompts, making it easy to skip or inc
    cd Debian-Tor-Site-Engine
    ```
 
-2. **Make Script Executable**
+2. **Make Scripts Executable**
 
    ```bash
-   chmod +x setup_darkweb_server.py
+   chmod +x setup_darkweb_server.py site-deployment/flask.py
    ```
 
-3. **Run the Script as Root**
+3. **Run the Main Wizard as Root**
 
    ```bash
    sudo ./setup_darkweb_server.py
@@ -60,7 +62,17 @@ This script interacts with you via yes/no prompts, making it easy to skip or inc
 
    You will be prompted with yes/no questions for each major step.
 
-4. **Note**: On some systems, you may need to install Python 3 if it isn’t already present:
+4. **(Optional) Deploy the Flask Addon**
+
+   ```bash
+   sudo ./site-deployment/flask.py
+   ```
+
+   - Installs Flask if not already present.
+   - Deploys a simple landing page showing "Exfil0 Here we go."
+   - (Optional) Sets up a systemd service to keep the Flask app running.
+
+5. **Note**: On some systems, you may need to install Python 3 if it isn’t already present:
 
    ```bash
    sudo apt-get update && sudo apt-get install -y python3
@@ -87,6 +99,11 @@ Once the script completes, you’ll have an `.onion` address printed to your scr
 - Run any web server on `127.0.0.1:80`.
 - Access your hidden service from Tor Browser at `http://YOUR_ONION_ADDRESS.onion`.
 
+### Deploy Flask Landing Page (Optional)
+
+- Run the Flask addon script to set up a minimal web service with a default landing page.
+- Access the `.onion` address via Tor Browser to view the deployed page.
+
 ### Check Logs
 
 ```bash
@@ -101,7 +118,7 @@ This shows the latest Tor logs. Adjust `-n` to view more lines.
 
 ### Flask Integration
 
-Provide an option to automatically install and configure a simple Flask application served on `127.0.0.1:80`, so it’s immediately accessible via the `.onion` address.
+Improve the sample app with templating, user authentication, etc.
 
 ### Crawlers
 
@@ -109,7 +126,7 @@ Integrate optional crawler scripts to index and monitor your hidden service, or 
 
 ### Monitors
 
-Add monitoring tools (like `monit` or custom watchers) to keep track of Tor’s health, hidden service availability, and potential intrusions.
+Add monitoring tools (like `monit` or custom watchers) to keep track of Tor’s health, hidden service availability, and server performance.
 
 ---
 
