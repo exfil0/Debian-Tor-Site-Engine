@@ -72,6 +72,8 @@ This script interacts with you via yes/no prompts, making it easy to skip or inc
    - Deploys a simple landing page showing "Exfil0 Here we go."
    - (Optional) Sets up a systemd service to keep the Flask app running.
 
+![dtse-flask](dtse-flask.png)
+
 5. **Note**: On some systems, you may need to install Python 3 if it isn’t already present:
 
    ```bash
